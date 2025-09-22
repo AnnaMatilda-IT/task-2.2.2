@@ -22,7 +22,7 @@ public class CarController {
     @GetMapping("/cars")
     public String getCars(@RequestParam(value = "count", defaultValue = "5")
                               int count, Model model) {
-        List<Car> cars = carService.getCars(count);
+        List<Car> cars = carService.getByCount(count);
         model.addAttribute("cars", cars);
         return "cars";
     }

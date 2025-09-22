@@ -2,19 +2,18 @@ package web.service;
 
 import org.springframework.stereotype.Service;
 import web.dao.CarDao;
-import web.dao.CarDaoImpl;
 import web.model.Car;
 import java.util.List;
 
 @Service
 public class CarService {
-    private CarDao carDao;
+    private final CarDao carDao;
 
     public CarService(CarDao carDao) {
-        this.carDao = new CarDaoImpl();
+        this.carDao = carDao;
     }
 
-    public List<Car> getCars(int count) {
+    public List<Car> getByCount(int count) {
         return carDao.getByCount(count);
     }
 }
